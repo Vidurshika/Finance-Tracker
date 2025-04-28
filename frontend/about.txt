@@ -1,0 +1,23 @@
+1.npm create vite@latest(react and js)
+2.npm install
+3.remove app.css
+4.empty index.css
+5.components,context,hooks,pages
+6.auth in pages- login,signup 
+7.dashboard in pages - home,income,expense
+8.utils and its 3 files
+9.tailwind -  npm install tailwindcss @tailwindcss/vite 
+              add plug-in and import to vite.config.js
+              @import "tailwindcss"; in index.css
+10.google fonts
+11.index.css
+12.npm i react-icons axios moment emoji-picker-react react-router-dom recharts react-hot-toast
+    This will install the following packages:
+    react-icons: For adding icons in your React app.
+    axios: For making HTTP requests.
+    moment: For working with dates and times.
+    emoji-picker-react: For adding emoji pickers in your React app.
+    react-router-dom: For routing in React apps
+    recharts: For creating charts in React.
+    react-hot-toast: For displaying toast notifications in React.
+13.App.jsx
