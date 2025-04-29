@@ -22,3 +22,17 @@
     react-hot-toast: For displaying toast notifications in React.
 13.App.jsx
 14. set Routes
+15.login and auth layouts
+16. About Auth layout--{children}
+    *children is a special prop in React.
+    *It refers to whatever JSX you wrap inside this component when you use it.
+    📦 Example usage:
+    *Suppose you use AuthLayout like this in your Login.js page:
+    <AuthLayout>
+    <p>Welcome back, please log in.</p>
+    </AuthLayout>
+    *Then children will be:<p>Welcome back, please log in.</p>
+    *And it will be inserted at:{children}in your AuthLayout component.
+    ✅ What does this mean?
+    *Your layout gives a consistent outer structure (e.g., logo, styles, background), and children allows you to insert different content inside that layout.
+    *This makes your layout reusable for both Login, SignUp, or any other page.
