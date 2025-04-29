@@ -21,3 +21,4 @@
     recharts: For creating charts in React.
     react-hot-toast: For displaying toast notifications in React.
 13.App.jsx
+14. set Routes
