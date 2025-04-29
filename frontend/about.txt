@@ -36,3 +36,5 @@
     ✅ What does this mean?
     *Your layout gives a consistent outer structure (e.g., logo, styles, background), and children allows you to insert different content inside that layout.
     *This makes your layout reusable for both Login, SignUp, or any other page.
+
+17.input component,input box styles added to index.css

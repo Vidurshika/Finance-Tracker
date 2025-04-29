@@ -5,8 +5,12 @@ import { FiBarChart2 } from 'react-icons/fi';
 const AuthLayout = ({ children }) => { /* children is a special prop in React.It refers to whatever JSX you wrap inside this component when you use it. */
   return (
     <div className='flex'>
-      <div className='w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12'>
+      {/* <div className='w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12'>
         <h2 className='text-lg font-medium text-black'>Finance Tracker</h2>
+        {children}
+      </div> */}
+      <div className='w-screen h-screen md:w-[60vw] px-6 pt-4 md:px-12 md:pt-8 pb-12 flex flex-col'>
+        <h2 className='text-lg font-medium text-black mb-4'>Finance Tracker</h2>
         {children}
       </div>
       {/* hidden: Hides the element on all screen sizes by default
@@ -16,7 +20,7 @@ const AuthLayout = ({ children }) => { /* children is a special prop in React.It
         <div className='w-48 h-56 rounded-[40px] border-[20px] border-blue-400 absolute top-[30%] -right-10' />
         <div className='w-48 h-48 rounded-[40px] bg-blue-500 absolute -bottom-7 -left-5' />
         
-        <div className='grid grid-cols-1 z-20'> {/* this div is for a rectangle in this box, called seperately */}
+        <div className='grid grid-cols-1 z-20 transition-all duration-300 ease-in-out transform hover:scale-[1.02] hover:opacity-90'> {/* this div is for a rectangle in this box, called seperately */}
            <StatsInfoCard 
                 icon={<FiBarChart2 />}
                 label="Track Your Income and Expense"
