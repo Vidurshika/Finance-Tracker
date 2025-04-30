@@ -37,4 +37,17 @@
     *Your layout gives a consistent outer structure (e.g., logo, styles, background), and children allows you to insert different content inside that layout.
     *This makes your layout reusable for both Login, SignUp, or any other page.
 
-17.input component,input box styles added to index.css
+17.input component,input box (in login page)styles added to index.css
+18.utils-helper:-
+    *In a front-end app structure, the utils (short for utilities) folder is used to store reusable helper functions or modules that can be used throughout your application. These are not tied to a specific component or feature but provide general functionality.
+    Common Uses of a utils Folder:
+    Formatting Helpers e.g., formatDate.js, capitalize.js, formatCurrency.js
+    Validation Functions e.g., validateEmail.js, isStrongPassword.js
+    API Helpers e.g., fetchWithTimeout.js, handleApiErrors.js
+    Conversion Utilities e.g., bytesToMB.js, secondsToTime.js
+    Math or String Utilities e.g., roundToDecimal.js, truncateText.js
+
+19.sign up page
+
+
+
