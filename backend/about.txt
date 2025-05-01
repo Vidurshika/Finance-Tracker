@@ -1,0 +1,12 @@
+1. cd backend
+2. npm init -y
+3.npm i express jsonwebtoken mongoose dotenv cors bcryptjs multer xlsx
+  Package	        Purpose
+    express	        Web framework for Node.js 
+    jsonwebtoken	For creating and verifying JSON Web Tokens (JWT) – used in user authentication.
+    mongoose	    MongoDB 
+    dotenv	        Loads environment variables from a .env file – keeps secrets/configs out of your code.
+    cors	        Middleware to enable Cross-Origin Resource Sharing 
+    bcryptjs	    Used to hash passwords before storing them – helps secure user data.
+    multer	        Middleware for handling multipart/form-data – especially useful for uploading files (e.g., profile pictures).
+    xlsx	        Lets you read/write Excel files in Node.js – useful for importing/exporting spreadsheet data.
