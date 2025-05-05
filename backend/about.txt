@@ -1,3 +1,4 @@
+                        // SET UP
 1. cd backend
 2. npm init -y
 3.npm i express jsonwebtoken mongoose dotenv cors bcryptjs multer xlsx
@@ -10,3 +11,19 @@
     bcryptjs	    Used to hash passwords before storing them – helps secure user data.
     multer	        Middleware for handling multipart/form-data – especially useful for uploading files (e.g., profile pictures).
     xlsx	        Lets you read/write Excel files in Node.js – useful for importing/exporting spreadsheet data.
+
+4. changes in Package
+5. npm i nodemon --save-dev
+
+20. (19 in front end) create file tree
+21. mongo URI
+22. secret key = node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+23. set up server.js-> cors and express mware, port, db connection
+24. db.js for connectDB
+
+25. create authRoutes
+26. authController set up
+27. db for users in models -> complete auth control funcs by using created users models
+
+// HOW TO CHECK FOR DB in MongoDB
+* cluster -> browse collections -> see docs

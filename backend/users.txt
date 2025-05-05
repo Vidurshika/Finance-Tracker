@@ -1,0 +1,4 @@
+    "fullName":"anne kelly",
+    "email":"ak@gmail.com",
+    "password":"abc123",
+    "profileImageUrl":""
