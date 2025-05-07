@@ -1,1 +1,14 @@
-1. POST http://localhost:8000/api/v1/auth/register and add body 
+1. POST http://localhost:8000/api/v1/auth/register and 
+   body -   "fullName":"anne kelly",
+            "email":"ak@gmail.com",
+            "password":"abc123",
+            "profileImageUrl":""
+
+2. POST http://localhost:8000/api/v1/auth/login
+   body - {
+             "email":"ak@gmail.com",
+             "password":"abc123"
+          }
+
+3. GET http://localhost:8000/api/v1/auth/getUser
+   1st login and the token and go to auth and choose bearer and put that there -> now send the req

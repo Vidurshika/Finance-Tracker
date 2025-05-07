@@ -1,4 +1,6 @@
 const express = require("express");
+const { protect } = require("../middleware/authMiddleware"); 
+
 
 const {    // functions in the controller
     registerUser,
@@ -6,14 +8,12 @@ const {    // functions in the controller
     getUserInfo,
 } = require("../controllers/authController"); 
 
-/* const { protect } = require("../middleware/authMiddleware");  */
-
 const router = express.Router();
 
 router.post("/register", registerUser); 
 
 router.post("/login", loginUser);
 
-/* router.get("/getUser", protect, getUserInfo); */
+router.get("/getUser", protect, getUserInfo);
 
 module.exports = router;

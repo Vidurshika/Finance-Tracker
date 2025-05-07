@@ -14,7 +14,7 @@
 
 4. changes in Package
 5. npm i nodemon --save-dev
-
+------------------------------------------------------------------------------------------------
 20. (19 in front end) create file tree
 21. mongo URI
 22. secret key = node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
@@ -26,4 +26,7 @@
 27. db for users in models -> complete auth control funcs by using created users models
 
 // HOW TO CHECK FOR DB in MongoDB
+* before run dev-> open mongo in web browser and add IP
 * cluster -> browse collections -> see docs
+
+28. auth middleware for getuser info func in auth controller
