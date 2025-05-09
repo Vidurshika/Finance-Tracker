@@ -1,4 +1,11 @@
-    "fullName":"anne kelly",
+1.  "fullName":"anne kelly",
     "email":"ak@gmail.com",
     "password":"abc123",
     "profileImageUrl":""
+
+2.  {           
+        "fullName":"Joana Miller",
+        "email":"jm@gmail.com",
+        "password":"ab12",
+        "profileImageUrl":"http://localhost:8000/uploads/1746729288675-chungha.jpeg"
+    }

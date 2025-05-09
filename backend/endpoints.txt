@@ -12,3 +12,7 @@
 
 3. GET http://localhost:8000/api/v1/auth/getUser
    1st login and the token and go to auth and choose bearer and put that there -> now send the req
+
+4. POST http://localhost:8000/api/v1/auth/upload-image
+   has body -> go to Body -> select Form data -> key = image and select file as type , value = select an img file from machine
+   The reponse url -> // must be added to databases as profileimageurl

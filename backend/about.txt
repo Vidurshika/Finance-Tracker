@@ -30,3 +30,4 @@
 * cluster -> browse collections -> see docs
 
 28. auth middleware for getuser info func in auth controller
+29. upload mware , upload func in authroutes , static mware for uploads in server
