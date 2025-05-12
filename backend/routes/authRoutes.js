@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.post("/register", registerUser); 
 router.post("/login", loginUser);
-router.get("/getUser", protect, getUserInfo);
+router.get("/getUser", protect, getUserInfo);// goes through protect means Bearer token is needed
 
 // /upload => for viewing , /upload-image => for uploading
 router.post("/upload-image", upload.single("image"), (req, res) => {

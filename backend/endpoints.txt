@@ -16,3 +16,36 @@
 4. POST http://localhost:8000/api/v1/auth/upload-image
    has body -> go to Body -> select Form data -> key = image and select file as type , value = select an img file from machine
    The reponse url -> // must be added to databases as profileimageurl
+
+5. POST http://localhost:8000/api/v1/income/add
+   has to login get the token and put it under auth Bearer token 
+   body:
+   {
+    "icon": "",
+    "source": "Salary",
+    "amount": "100",
+    "date": "2025-05-10"
+   }
+
+6. GET http://localhost:8000/api/v1/income/get
+   has to login get the token and put it under auth Bearer token
+
+7. DELETE http://localhost:8000/api/v1/income/<income id>
+   has to login 
+
+8. GET http://localhost:8000/api/v1/income/downloadexcel
+   has to login and "In Postman, click the small dropdown arrow next to the "Send" button.
+                     Choose "Send and Download".
+                     After the request completes, Postman will ask you where to save the file.
+                     Save it as income-details.xlsx."
+
+9. POST http://localhost:8000/api/v1/expense/add
+   has to login , body:
+                       {
+                           "icon": "",
+                           "category": "Rent",
+                           "amount": "50",
+                           "date": "2025-05-12"
+                        }
+10. other endpoints are same as income
+

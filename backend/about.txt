@@ -31,3 +31,6 @@
 
 28. auth middleware for getuser info func in auth controller
 29. upload mware , upload func in authroutes , static mware for uploads in server
+30. income routes and controllers
+31. expense routes and controllers
+32. dashboard routes and controllers

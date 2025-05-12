@@ -1,11 +1,42 @@
-1.  "fullName":"anne kelly",
-    "email":"ak@gmail.com",
-    "password":"abc123",
-    "profileImageUrl":""
-
+1.  { 
+        "fullName":"anne kelly",
+        "email":"ak@gmail.com",
+        "password":"abc123",
+        "profileImageUrl":""
+    }
 2.  {           
         "fullName":"Joana Miller",
         "email":"jm@gmail.com",
         "password":"ab12",
         "profileImageUrl":"http://localhost:8000/uploads/1746729288675-chungha.jpeg"
     }
+
+---------------------------------------------------------------------------------------------------
+
+income collections
+
+1. {
+    "userId": "6818daecca98c002a8309c30",// anne kelly
+    "icon": "",
+    "source": "Salary",
+    "amount": 100,
+    "date": "2025-05-10T00:00:00.000Z",
+    "_id": "6821bdf6c7a93871fc610adc",
+    "createdAt": "2025-05-12T09:23:02.698Z",
+    "updatedAt": "2025-05-12T09:23:02.698Z",
+    "__v": 0
+}
+----------------------------------------------------------------------------------------------
+ expense
+
+1.{
+    "userId": "6818daecca98c002a8309c30",//anne kelly
+    "icon": "",
+    "category": "Rent",
+    "amount": 50,
+    "date": "2025-05-12T00:00:00.000Z",
+    "_id": "6821e9d2a96088efbb4e1018",
+    "createdAt": "2025-05-12T12:30:10.913Z",
+    "updatedAt": "2025-05-12T12:30:10.913Z",
+    "__v": 0
+}

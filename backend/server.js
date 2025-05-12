@@ -5,6 +5,8 @@ const path = require("path");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const incomeRoutes = require("./routes/incomeRoutes");
+const expenseRoutes = require("./routes/expenseRoutes");
+const dashBoardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
 
@@ -22,7 +24,9 @@ app.use(express.json());
 connectDB();
 
 app.use("/api/v1/auth",authRoutes);// url = METHOD /api/v1/auth/..
-app.use("/api/v1/income",incomeRoutes);
+app.use("/api/v1/income", incomeRoutes);
+app.use("/api/v1/expense", expenseRoutes);
+app.use("/api/v1/dashboard",dashBoardRoutes );
 
 
 //serves uploads folder
