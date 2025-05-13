@@ -49,3 +49,36 @@
                         }
 10. other endpoints are same as income
 
+11. GET http://localhost:8000/api/v1/dashboard
+    has to login
+    output res:
+      {
+         "totalBalance": 50,
+         "totalIncome": 100,
+         "totalExpense": 50,
+         "last30DaysExpenses": {
+            "total": 50,
+            "transactions": [
+                  {
+                    ...
+                  }
+            ]
+         },
+         "last60DaysIncome": {
+            "total": 100,
+            "transactions": [
+                  {
+                     ....
+                  }
+            ]
+         },
+         "recentTransactions": [
+            {
+                  ....
+            },
+            {
+                  ...
+            }
+         ]
+      }
+
