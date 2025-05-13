@@ -51,6 +51,13 @@
 
 after this back end started...
 
+34. add axiosInstance.js modify apiPAths.js
+35. add login api call in handleLogin , Login.jsx
+36. testing -> 1 terminal for back, 2 terminal for front end
+
+// DEV TOOLS
+ go to to application section -> local storage section to see token
+ go to network -> select all -> then select component (url last /path = that name on the right side)-> then from top bar select headers, payload, response etc
 
 
 
