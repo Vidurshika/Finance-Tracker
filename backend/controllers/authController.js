@@ -57,7 +57,7 @@ exports.loginUser = async (req, res) => {
     }
     try{
         const user = await User.findOne({email});
-        if ( !user || !(await user.comparePassword(password)) ){
+        if ( !user || !(await user.comparePassword(password)) ){ // comparePassword is a function in the model of User
             return res.status(400).json({ message: "Invalid email or password" });
         }
         
