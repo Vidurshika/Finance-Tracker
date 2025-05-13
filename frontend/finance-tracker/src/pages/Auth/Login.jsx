@@ -3,6 +3,8 @@ import AuthLayout from '../../components/layouts/AuthLayout'
 import {useNavigate,Link } from 'react-router-dom'
 import Input from '../../components/input/Input'
 import { validateEmail } from '../../utils/helper';
+import axiosInstance from '../../utils/axiosinstance';
+import { API_PATHS } from '../../utils/apiPaths';
 
 const Login = () => {
   const [email,setEmail] = useState("");
@@ -24,7 +26,38 @@ const Login = () => {
     setError("");
 
     //login api call
+    try { 
+      const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, { //sends a POST request to the login API.To the given URL as the endpoint
+        email,   // these 2 are included as the req.body
+        password, // plain pw is sent but would be hashed and checked by comparePassword (in model) at the controller
+      }); //{ email, password } is the data sent to the backend, taken from the form the user filled.
+      const { token, user} = response.data;// response received from above line, extracts token and user from the response.data object.
+
+      if( token){
+        localStorage.setItem("token", token);  /*  This stores the token in the browser's localStorage.
+                                           It allows the frontend to remember the user is logged in."token" is the key.token is the value received from backend. */
+        navigate("/dashboard");// redirect to Home component after login
+      }
+    } catch(error){
+      if(error.response && error.response.data.message){ // catch catches an error object -> { ... , response:{ data:{message:}, .. , ..},..,..}
+        setError(error.response.data.message); // store error sent by backend in here , given by res.data (message)
+      } else {
+        setError("Something went wrong.Please try again.");
+      }
+    }
   }
+/* response.data from backend:-
+{
+    id: "6097e0c...",       // the user's MongoDB ID
+    user: {                 // full user object (excluding password)
+      _id: "6097e0c...",
+      name: "Vivi",
+      email: "vivi@email.com",
+      ... // other user fields
+    },
+    token: "eyJhbGciOi..."  // JWT token string
+} 
+*/
 
   return (
     <AuthLayout>
