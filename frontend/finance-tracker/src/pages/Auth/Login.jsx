@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import AuthLayout from '../../components/layouts/AuthLayout'
 import {useNavigate,Link } from 'react-router-dom'
 import Input from '../../components/input/Input'
 import { validateEmail } from '../../utils/helper';
 import axiosInstance from '../../utils/axiosinstance';
 import { API_PATHS } from '../../utils/apiPaths';
+import { UserContext } from '../../context/userContext';
 
 const Login = () => {
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   const [error,setError] = useState(null);
+
+  const { updateUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -36,6 +39,9 @@ const Login = () => {
       if( token){
         localStorage.setItem("token", token);  /*  This stores the token in the browser's localStorage.
                                            It allows the frontend to remember the user is logged in."token" is the key.token is the value received from backend. */
+        updateUser(user);/* Updating the user state globally(in front) using updateUser(user), so:
+                            The rest of your app (like Navbar, Dashboard, etc.) knows the user is logged in.
+                            You can access user info (like name, role, email) from anywhere using useContext(UserContext). */                     
         navigate("/dashboard");// redirect to Home component after login
       }
     } catch(error){

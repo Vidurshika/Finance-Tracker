@@ -26,8 +26,8 @@ const UserProvider = ({ children }) => { //It takes children as a prop, which me
             {children}
         </UserContext.Provider>
     );
-    /*  This returns the UserContext.Provider which shares data (user, updateUser, clearUser) with all child components.
-        value={{ ... }}: this is the actual data other components can access. */
+    
 }
 
 export default UserProvider;
+
