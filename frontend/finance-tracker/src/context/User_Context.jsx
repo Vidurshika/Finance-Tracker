@@ -4,7 +4,7 @@ export const UserContext = createContext();
 
 const UserProvider = ({ children }) => { //It takes children as a prop, which means any component inside <UserProvider> ... </UserProvider> will be called children.
     const  [user, setUser] = useState (null);
-
+    console.log(user);
     //function to update user data
     const updateUser = (userData) => {
         setUser(userData);
@@ -30,4 +30,3 @@ const UserProvider = ({ children }) => { //It takes children as a prop, which me
 }
 
 export default UserProvider;
-
