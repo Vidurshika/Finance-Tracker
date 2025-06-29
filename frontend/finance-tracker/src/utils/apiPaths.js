@@ -6,11 +6,11 @@ export const API_PATHS = {
     AUTH: {
         LOGIN:"/api/v1/auth/login", // loginUser
         REGISTER:"/api/v1/auth/register",// registerUSer
-        GET_USER_INFO:"/api/v1/auth/getUser",
+        GET_USER_INFO:"/api/v1/auth/getUser",//getUserInfo in auth controlelr
 
     },
     DASHBOARD: {
-        GET_DATA:"/api/v1/dashboard",
+        GET_DATA:"/api/v1/dashboard",//getdashboarddata in dboard controller
 
     },
     INCOME: {
@@ -28,7 +28,7 @@ export const API_PATHS = {
         DOWNLOAD_EXPENSE: '/api/v1/expense/downloadexcel',
         
     },
-    IMAGE: {
+    IMAGE: { // under auth in backend
         UPLOAD_IMAGE:"/api/v1/auth/upload-image",
 
     },
