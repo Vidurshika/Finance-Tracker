@@ -18,7 +18,7 @@ router.get("/getUser", protect, getUserInfo);// goes through protect means Beare
 // /upload => for viewing , /upload-image => for uploading
 router.post("/upload-image", upload.single("image"), (req, res) => {
     /* upload.single("image"):This is upload middleware (go see it) that handles file uploads.
-       It looks for a file in the request with the name "image" (like from a form field).
+       It looks for a file in the request with the name "image" (like from a form field) from front end res and 'image' should be used as form Data and it is placed in uploadImage.js in front.
        sends that image to multer to save it in storage
        
        <form action="/upload-image" method="POST" enctype="multipart/form-data">
