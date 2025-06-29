@@ -1,9 +1,83 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import DashboardLayout from '../../components/layouts/DashboardLayout';
+import { useUserAuth } from '../../hooks/useUserAuth';
+import axiosInstance from '../../utils/axiosinstance';
+import { API_PATHS } from '../../utils/apiPaths';
+import { LuHandCoins,LuWalletMinimal } from "react-icons/lu";
+import { IoMdCard } from "react-icons/io";
+import InfoCard from "../../components/Cards/InfoCard"; 
+import { addThousandsSeparator } from "../../utils/helper";
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
-}
+  const navigate = useNavigate();
+  useUserAuth(); // handles user auth and fetches user info
 
-export default Home
+  const [dashboardData, setDashboardData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
+
+  const fetchDashboardData = async () => {
+    if (loading) return;
+    setLoading(true);
+
+    try {
+      const response = await axiosInstance.get(API_PATHS.DASHBOARD.GET_DATA);
+      if (response.data) {
+        setDashboardData(response.data);
+      }
+    } catch (error) {
+      console.log("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchDashboardData();
+  }, []);
+
+  return (
+    <DashboardLayout activeMenu="Dashboard">
+      <div className='my-5 mx-auto'>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          {/* 3 cards */}
+
+          <InfoCard
+            icon={<IoMdCard/>}
+            label="Total Balance"
+            value={addThousandsSeparator(dashboardData?.totalBalance || 0)}
+            color= "bg-primary"
+          />
+          <InfoCard
+            icon={<LuWalletMinimal/>}
+            label="Total Income"
+            value={addThousandsSeparator(dashboardData?.totalIncome || 0)}
+            color= "bg-blue-500"
+          />
+          <InfoCard
+            icon={<LuHandCoins/>}
+            label="Total Expense"
+            value={addThousandsSeparator(dashboardData?.totalExpense || 0)}
+            color= "bg-orange-500"
+          />
+          {/* total balance ,income, expense are included in the response from dashboard controller */}
+
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 ">
+          
+        </div>
+      </div>
+    </DashboardLayout>
+  );
+};
+
+export default Home;
