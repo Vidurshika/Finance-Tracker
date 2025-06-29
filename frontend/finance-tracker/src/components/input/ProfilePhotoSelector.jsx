@@ -27,7 +27,7 @@ This is called a temporary preview URL — because:It disappears when you reload
         setPreviewUrl(null);
     };
 
-    const onChooseFile = () => {
+    const onChooseFile = () => {  /* To give users a custom button or icon to open the file picker instead of the default boring "Choose File" button. */
         inputRef.current.click();
     };
 
