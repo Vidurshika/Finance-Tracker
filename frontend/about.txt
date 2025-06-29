@@ -55,10 +55,29 @@ after this back end started...
 35. add login api call in handleLogin , Login.jsx
 36. testing -> 1 terminal for back, 2 terminal for front end
 
-// DEV TOOLS
+// DEV TOOLS for 35
  go to to application section -> local storage section to see token
  go to network -> select all -> then select component (url last /path = that name on the right side)-> then from top bar select headers, payload, response etc
 
+37.sign up api call , uploadImage.js
+
+extra -
+So anything stored via updateUser(user) ; something like useState and save user, is lost unless:
+You save it in localStorage or
+You re-fetch the user from the backend using the stored token.
+
+extra -
+res in the backend is what you use to send a response to the browser.
+response in the frontend is what you use to receive the server’s reply.
+req in back - It represents the incoming HTTP request that the frontend (or browser) sends to the backend.
 
 
+38. Home layout and design, Dashboard layout , navbar , sidebar
+
+extra -
+You store the token in localStorage, but
+You do not store the user object persistently in localStorage,
+So on page reload, your context's initial state is null
+
+39. Home-fetch dashdata
 
