@@ -43,7 +43,7 @@ const SideMenu = ({ activeMenu }) => {
         <button
           key={`menu_${index}`}
           className={`w-full flex items-center gap-4 text-[15px] ${
-            activeMenu === item.label ? "text-white bg-primary" : "text-black"
+            activeMenu === item.label ? "text-white bg-blue-500" : "text-black"
           } py-3 px-6 rounded-lg mb-3`}
           //If activeMenu === item.label, that menu button gets special styling (text-white bg-primary), meaning it looks highlighted.
           onClick={() => handleClick(item.path)}

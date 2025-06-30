@@ -81,3 +81,13 @@ So on page reload, your context's initial state is null
 
 39. Home-fetch dashdata , other components in the home
 
+extra -
+What exactly happens in the backend when I POST an expense? via Postman when the front end is built, and how all get automatically updated after new expense?
+* One POST request ➜ Backend saves ➜ Frontend fetches ➜ Dashboard updates.
+
+* When a POST request comes to /expenses, run its controller-> store in db->Response Sent Back to Postman or Frontend
+  ->frontend loads the dashboard again, it calls all necessary end points to fetch again->the backend calculate values by taking from db again->That updated total gets returned to the frontend → state updates → UI updates
+
+* useEffect only fetch once, so have to reload page so the front end will re fetch again (unless front wont refetch)
+
+* Using WebSocket / real-time DB->Re fetch->Backend pushes updates to frontend (not used yet in my app)

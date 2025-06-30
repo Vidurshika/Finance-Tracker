@@ -28,3 +28,26 @@ export const addThousandsSeparator = (num) => {
         ? `${formattedInteger}.${fractionPart}`
         : formattedInteger;
 }; //addThousandsSeparator(1234567.89)  // "1,234,567.89"
+
+//recharts expects clean, predictable data.
+export const prepareExpenseBarChartData = (data = []) => {
+  return data.map((item) => ({
+    category: item?.category || "Unknown",
+    amount: item?.amount || 0,
+  }));
+};
+/* 
+Input:
+[
+  { category: "Food", amount: 500 },
+  { category: "Travel" }, // no amount
+  {} // no category, no amount
+]
+
+Output:
+[
+  { category: "Food", amount: 500 },
+  { category: "Travel", amount: 0 },
+  { category: "Unknown", amount: 0 }
+]
+*/
