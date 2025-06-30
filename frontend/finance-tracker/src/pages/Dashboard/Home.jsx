@@ -8,6 +8,7 @@ import { LuHandCoins,LuWalletMinimal } from "react-icons/lu";
 import { IoMdCard } from "react-icons/io";
 import InfoCard from "../../components/Cards/InfoCard"; 
 import { addThousandsSeparator } from "../../utils/helper";
+import RecentTransactions from "../../components/Dashboard/RecentTransactions";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -71,10 +72,16 @@ const Home = () => {
           {/* total balance ,income, expense are included in the response from dashboard controller */}
 
         </div>
-
+        
+        {/* Recent Transactions section */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 ">
-          
+            <RecentTransactions
+              transactions={dashboardData?.recentTransactions}
+              onSeeMore={()=> navigate ("/expense")}
+            />
         </div>
+
       </div>
     </DashboardLayout>
   );
