@@ -9,6 +9,7 @@ import { IoMdCard } from "react-icons/io";
 import InfoCard from "../../components/Cards/InfoCard"; 
 import { addThousandsSeparator } from "../../utils/helper";
 import RecentTransactions from "../../components/Dashboard/RecentTransactions";
+import FinanceOverview from "../../components/Dashboard/FinanceOverview";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -74,12 +75,26 @@ const Home = () => {
         </div>
         
         {/* Recent Transactions section */}
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 ">
             <RecentTransactions
               transactions={dashboardData?.recentTransactions}
               onSeeMore={()=> navigate ("/expense")}
             />
+
+            {/* Pie chart */}
+            <FinanceOverview
+              totalBalance={dashboardData?.totalBalance || 0}
+              totalIncome={dashboardData?.totalIncome || 0}
+              totalExpense={dashboardData?.totalExpense || 0}
+            />
+
+        </div>
+
+        
+
+        <div>
+
         </div>
 
       </div>

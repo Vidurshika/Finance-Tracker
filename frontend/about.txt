@@ -79,5 +79,5 @@ You store the token in localStorage, but
 You do not store the user object persistently in localStorage,
 So on page reload, your context's initial state is null
 
-39. Home-fetch dashdata
+39. Home-fetch dashdata , other components in the home
 

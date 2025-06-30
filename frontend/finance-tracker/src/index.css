@@ -28,8 +28,19 @@
     margin-left: 0 !important;
     box-sizing: border-box;
   }
-  
+  @media (max-width: 480px) {
+  .chart-wrapper {
+    padding: 0 12px;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .recharts-responsive-container {
+    height: 280px !important; /* reduce height for mobile */
+  }
+}
 
+  
 }
 .input-box {
   @apply w-full flex justify-between gap-3 text-sm text-black bg-slate-100 rounded px-4 py-3 mb-4 mt-3 border border-slate-200 outline-none;
