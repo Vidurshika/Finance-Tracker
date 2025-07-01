@@ -8,7 +8,7 @@ const CustomTooltip = ({ active, payload }) => {
 
     return (
       <div className='bg-white shadow-md rounded-lg p-2 border border-gray-300'>
-        <p className='text-xs font-semibold text-purple-800 mb-1'>
+        <p className='text-xs font-semibold text-blue-500 mb-1'>
           {payload[0].name} {/* gets the name from the first item in the payload array */}
         </p>
         <p className='text-sm text-gray-600'>

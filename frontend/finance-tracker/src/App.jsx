@@ -4,7 +4,7 @@ import { BrowserRouter,Routes,Route ,Navigate} from "react-router-dom";
 import Login from './pages/Auth/Login'
 import SignUp from './pages/Auth/SignUp'
 import Home from './pages/Dashboard/Home'
-import Income from './pages/Dashboard/Income'
+import Income from './pages/Dashboard/income'
 import Expense from './pages/Dashboard/Expense'
 import UserProvider, { UserContext } from './context/User_Context';
 

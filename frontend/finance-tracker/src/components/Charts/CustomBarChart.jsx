@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; 
 import {
   BarChart,
   Bar,
@@ -11,19 +11,20 @@ import {
 } from 'recharts';
 
 const CustomBarChart = ({ data }) => {
-  // Alternate bar colors
+
+  //alternate the bar colors
   const getBarColor = (index) => (index % 2 === 0 ? '#007BFF' : '#875CF5');
 
   const RenderTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
-        <div className='bg-white shadow-md rounded-lg p-2 border border-gray-300'>
-          <p className='text-xs font-semibold text-blue-500 mb-1'>
+        <div className='bg-white shadow-md rounded-md p-3 border border-gray-200'>
+          <p className='text-sm font-semibold text-blue-600 mb-1'>
             {payload[0].payload.category}
           </p>
-          <p className='text-sm text-gray-600'>
-            Amount:
-            <span className='text-sm font-medium text-gray-900'>
+          <p className='text-sm text-gray-700'>
+            Amount:{' '}
+            <span className='font-semibold text-gray-900'>
               ${payload[0].payload.amount}
             </span>
           </p>
@@ -34,18 +35,18 @@ const CustomBarChart = ({ data }) => {
   };
 
   return (
-    <div className='bg-white mt-6'>
+    <div className='bg-gray-50 p-4 rounded-xl shadow-sm border border-gray-100 mt-6'>
       <ResponsiveContainer width='100%' height={300}>
         <BarChart data={data}>
 
-          <CartesianGrid stroke='none' />
+          <CartesianGrid strokeDasharray='3 3' vertical={false} stroke='#f0f0f0' />
 
-          <XAxis dataKey='month' tick={{ fontSize: 12, fill: 'blue-500' }} stroke='none' />
-          <YAxis tick={{ fontSize: 12, fill: 'blue-500' }} stroke='none' />
+          <XAxis dataKey='month' tick={{ fontSize: 12, fill: '#3b82f6' }} axisLine={false} />
+          <YAxis tick={{ fontSize: 12, fill: '#3b82f6' }} axisLine={false} />
 
           <Tooltip content={<RenderTooltip />} />
 
-          <Bar dataKey='amount' radius={[10, 10, 0, 0]}> {/* 	Adds individual colors to bars */}
+          <Bar dataKey='amount' radius={[6, 6, 0, 0]}> {/* 	Adds individual colors to bars */}
             {data.map((entry, index) => (
               <Cell key={index} fill={getBarColor(index)} />
             ))}
@@ -58,3 +59,4 @@ const CustomBarChart = ({ data }) => {
 };
 
 export default CustomBarChart;
+
