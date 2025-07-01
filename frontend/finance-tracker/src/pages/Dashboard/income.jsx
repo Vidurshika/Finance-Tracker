@@ -5,12 +5,15 @@ import axiosInstance from '../../utils/axiosinstance';
 import { API_PATHS } from '../../utils/apiPaths';
 import Modal from '../../components/Modal';
 import AddIncomeForm from '../../components/Income/AddIncomeForm';
+import IncomeList from '../../components/Income/IncomeList';
+import { toast } from 'react-hot-toast';
+
 
 const Income = () => {
   
   const [incomeData,setIncomeData] = useState([]);
   const [loading,setLoading] = useState(false);
-  const [openAddIncomeModal,setopenAddIncomeModal] = useState(false);
+  const [openAddIncomeModal,setOpenAddIncomeModal] = useState(false);
   const [openDeleteAlert, setOpenDeleteAlert] = useState({
     show:false,
     data:null,
@@ -37,6 +40,39 @@ const Income = () => {
 
   //handle add income
   const handleAddIncome = async (income) => {
+    const {source, amount, date, icon} = income; //separates the values from the income object
+
+    //validation check - Toaster is in app
+    if(!source.trim()){ // user didn’t type a source, it shows an error toast and stops.
+      toast.error("Source is required");
+      return;
+    }
+
+    if(!amount || isNaN(amount) || Number(amount) <=0 ){ //Checks if it's empty ,Checks if it’s not a number,Checks if it's less than or equal to 0
+      toast.error("Amount should be a valid number");
+      return;
+    }
+
+    if(!date){ // no data
+      toast.error("Date is required");
+      return;
+    }
+
+    try{
+      await axiosInstance.post(API_PATHS.INCOME.ADD_INCOME,{
+        source,
+        amount,
+        date,
+        icon,
+      }); // send data to backend
+
+      setOpenAddIncomeModal(false); //Closes the "Add Income" popup/modal
+      toast.success("Income added successfully");
+      fetchIncomeDetails();//as db is updated; ui needs to be changed, it is not implicit , so this will Gets the latest income data from the database ,Updates the UI (state) to show the latest info
+    } catch(error){
+       "Error adding income:",
+       error.response?.data?.message || error.message
+    };
 
   };
 
@@ -65,20 +101,29 @@ const Income = () => {
           <div className=''>
             <IncomeOverview
              transactions={incomeData}
-             onAddIncome={()=> setopenAddIncomeModal(true)}
+             onAddIncome={()=> setOpenAddIncomeModal(true)}
              /* IncomeOverview component receives a prop onAddIncome which is a function.
                 When the user clicks the "Add Income" button inside IncomeOverview, it calls this onAddIncome function.
-                That function calls setopenAddIncomeModal(true) in your Income component state, changing openAddIncomeModal from false to true.
+                That function calls setOpenAddIncomeModal(true) in your Income component state, changing openAddIncomeModal from false to true.
                 Since openAddIncomeModal becomes true, your Modal component renders and model is displayed ,because isOpen becomes true*/
             />
           </div>
+
+          <IncomeList
+           transactions={incomeData}
+           openDelete={ (id) => {
+            setOpenDeleteAlert({ show: true , data:id })
+           }}
+           onDownlaod={handleDownloadIncomeDetails}
+          />
+
         </div>
         
         {/* Inside modal, render the AddIncomeForm and pass handleAddIncome as prop */}
         {/* AIF is passed automatically as children to the Modal component */}
         <Modal
          isOpen = {openAddIncomeModal}
-         onClose = {()=> setopenAddIncomeModal(false)} // close btn clicked -> onClose is called in Modal-> so isopen= false -> so model doesnt render and model disappear
+         onClose = {()=> setOpenAddIncomeModal(false)} // close btn clicked -> onClose is called in Modal-> so isopen= false -> so model doesnt render and model disappear
          title="Add Income"
         >
           <AddIncomeForm onAddIncome={handleAddIncome}/> {/* send data to back end */}
