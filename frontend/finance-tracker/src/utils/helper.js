@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const validateEmail = (email) =>{
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // regex ensures basic email validation
     return regex.test(email);
@@ -51,3 +53,15 @@ Output:
   { category: "Unknown", amount: 0 }
 ]
 */
+
+export const prepareIncomeBarChartData = (data = []) => { //defaults to an empty array ([]) if nothing is passed
+  const storedData = [...data].sort((a,b)=>new Date(a.date)-new Date(b.date) ); // orders the items by date, from earliest to latest
+
+  const chartData = storedData.map((item) => ({ //creates a new array, converting each object to a chart-friendly format
+    month: moment(item?.date).format('Do MM'),
+    amount: item?.amount,
+    source: item?.source,
+  }));
+
+  return chartData;
+};

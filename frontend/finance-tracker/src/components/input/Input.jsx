@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa6';
 
+//return a reusable input field for the given parameters
 const Input = ({ value, onChange, placeholder, label, type }) => {
   const [showPassword, setShowPassword] = useState(false);
 

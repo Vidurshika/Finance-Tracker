@@ -9,11 +9,11 @@ export const API_PATHS = {
         GET_USER_INFO:"/api/v1/auth/getUser",//getUserInfo in auth controlelr
 
     },
-    DASHBOARD: {
+    DASHBOARD: { //access data for dashboard ui
         GET_DATA:"/api/v1/dashboard",//getdashboarddata in dboard controller
 
     },
-    INCOME: {
+    INCOME: { //access data for income ui
     ADD_INCOME: "/api/v1/income/add",
     GET_ALL_INCOME: "/api/v1/income/get",
     DELETE_INCOME: (incomeId) => `/api/v1/income/${incomeId}`,
