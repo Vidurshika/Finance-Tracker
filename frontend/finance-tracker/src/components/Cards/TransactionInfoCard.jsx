@@ -44,7 +44,7 @@ const TransactionInfoCard = ({
           {!hideDeleteBtn && ( //Only show the delete button if hideDeleteBtn is false or not provided.
             <button
               className='text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 z-10 transition-opacity cursor-pointer'
-              onClick={onDelete}
+              onClick={onDelete} //deleting is triggered here,if clicked -> call onDel
             >
               <LuTrash size={18} />
             </button>

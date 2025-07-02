@@ -150,6 +150,7 @@ extra - When a new income is added will the dashboard get updated ?
 *Adding income does not auto-refresh the dashboard unless you've coded it to react to changes (shared state-conetxt, props, or refetching logic).
 
 
+
 extra -
 *A new income added then income page needs to be updated , so fetching is re called
 But when move to Home , all are updated automatically why :-
@@ -165,6 +166,8 @@ Which calls your API and gets updated data--->This is why your dashboard auto-up
 *Mounted = when the component appears (or reappears) on the screen.
 In your app, that happens when you:Navigate to /dashboard using a route , Or refresh the browser while on /dashboard
 
+
+
 extra -
 *useEffect(() => {
   fetchIncomeDetails();
@@ -175,3 +178,14 @@ It means: Every time incomeData changes, run fetchIncomeDetails() again.So it is
   console.log("Data changed:", data);
 }, [data]);
 This is totally safe because:You're not changing data inside the effect.you’re only reacting to changes 
+
+
+extra -
+Expression                              	Meaning
+onDelete={onDelete(income._id)}	          Calls immediately (wrong!)
+onDelete={() => onDelete(income._id)}	    Calls when clicked (correct!)
+
+extra -
+*Props must match
+<DashboardLayout activeMenu="Income"> then needs to be -> const DashboardLayout = ( {children, activeMenu} )
+<DashboardLayout menu="Income" />	 and in function :- ({ activeMenu })	❌ activeMenu will be undefined

@@ -7,6 +7,7 @@ import Modal from '../../components/Modal';
 import AddIncomeForm from '../../components/Income/AddIncomeForm';
 import IncomeList from '../../components/Income/IncomeList';
 import { toast } from 'react-hot-toast';
+import DeleteAlert from '../../components/DeleteAlert';
 
 
 const Income = () => {
@@ -78,13 +79,43 @@ const Income = () => {
 
   //delete income
   const deleteIncome = async (id) => {
-
+    try{
+      await axiosInstance.delete(API_PATHS.INCOME.DELETE_INCOME(id));
+      setOpenDeleteAlert({show:false , date:null});
+      toast.success("Income record deleted successfully");
+      fetchIncomeDetails();
+    } catch(error) {
+      console.error(
+        "Error deleting income:",
+        error.response?.data?.message || error.message
+      );
+    }
   };
 
   //handle download income detail 
-  const handleDownloadIncomeDetails = async () =>{
+const handleDownloadIncomeDetails = async () => {
+  try {
+    const response = await axiosInstance.get(API_PATHS.INCOME.DOWNLOAD_INCOME, {
+      responseType: 'blob', // Important! Treat response as a binary file
+    });
 
+    // Create a blob URL and force download
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'income-details.xlsx');
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    toast.success("Income file downloaded successfully!");
+  } catch (error) {
+    console.error("Download error:", error);
+    toast.error("Failed to download income file");
   }
+};
+
+
 
   useEffect(() => {
     fetchIncomeDetails();
@@ -94,7 +125,7 @@ const Income = () => {
 
 
   return (//Renders the layout and passes income data + a handler to open the moda
-    <DashboardLayout active="Income">
+    <DashboardLayout activeMenu="Income">
       <div className='my-5 mx-auto'>
 
         <div className='grid grid-cols-1 gap-6'> {/* bar graph */}
@@ -110,23 +141,35 @@ const Income = () => {
           </div>
 
           <IncomeList
-           transactions={incomeData}
-           openDelete={ (id) => {
-            setOpenDeleteAlert({ show: true , data:id })
-           }}
-           onDownlaod={handleDownloadIncomeDetails}
+            transactions={incomeData}
+            onDelete={(id) => { //incomeList passes id 
+              setOpenDeleteAlert({ show: true, data: id });//show an alert before calling the handler
+            }}
+            onDownload={handleDownloadIncomeDetails} // when onDownload in incomeList is initiated-handler runs
           />
 
         </div>
         
         {/* Inside modal, render the AddIncomeForm and pass handleAddIncome as prop */}
-        {/* AIF is passed automatically as children to the Modal component */}
+        {/* AIF is passed automatically as a child to the Modal component */}
         <Modal
          isOpen = {openAddIncomeModal}
          onClose = {()=> setOpenAddIncomeModal(false)} // close btn clicked -> onClose is called in Modal-> so isopen= false -> so model doesnt render and model disappear
          title="Add Income"
         >
           <AddIncomeForm onAddIncome={handleAddIncome}/> {/* send data to back end */}
+        </Modal>
+
+        {/* modal for delete alert*/}
+        <Modal
+         isOpen={openDeleteAlert.show}
+         onClose={()=> setOpenDeleteAlert({ show:false , data:null})} // alert stores data=id in its state
+         title="Delete Income"
+        >
+         <DeleteAlert
+          content="Are you sure you want to delete this income record?"
+          onDelete={()=> deleteIncome(openDeleteAlert.data)} // handler is called
+         />
         </Modal>
 
       </div>

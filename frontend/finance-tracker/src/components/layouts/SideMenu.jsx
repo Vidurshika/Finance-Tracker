@@ -23,6 +23,7 @@ const SideMenu = ({ activeMenu }) => {
   };
 
   return (
+    
     <div className='fixed-sidebar w-64 h-[calc(100vh-61px)] bg-white border-r border-gray-200/50 p-5 sticky top-[61px] z-[200] overflow-auto'>
       <div className='flex flex-col items-center justify-center gap-3 mt-3 mb-7'>
 
@@ -40,6 +41,7 @@ const SideMenu = ({ activeMenu }) => {
       </div>
 
       {SIDE_MENU_DATA.map((item, index) => (//Loops over each item in SIDE_MENU_DATA
+        
         <button
           key={`menu_${index}`}
           className={`w-full flex items-center gap-4 text-[15px] ${
@@ -51,6 +53,7 @@ const SideMenu = ({ activeMenu }) => {
           <item.icon className="text-xl" />
           {item.label}
         </button>
+        
       ))}
 
     </div>
