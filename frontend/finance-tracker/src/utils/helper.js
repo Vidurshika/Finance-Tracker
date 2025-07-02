@@ -58,9 +58,23 @@ export const prepareIncomeBarChartData = (data = []) => { //defaults to an empty
   const storedData = [...data].sort((a,b)=>new Date(a.date)-new Date(b.date) ); // orders the items by date, from earliest to latest
 
   const chartData = storedData.map((item) => ({ //creates a new array, converting each object to a chart-friendly format
-    month: moment(item?.date).format('Do MM'),
+    month: moment(item?.date).format('Do MMM'),
     amount: item?.amount,
     source: item?.source,
+  }));
+
+  return chartData;
+};
+
+
+/* line chart in expense page */
+export const prepareExpenseLineChartData = (data = []) => { 
+  const storedData = [...data].sort((a, b) => new Date(a.date) - new Date(b.date)); 
+  
+  const chartData = storedData.map((item) => ({ 
+    month: moment(item?.date).format('Do MMM'), // e.g., "2nd Jul"
+    amount: item?.amount,
+    category: item?.category,
   }));
 
   return chartData;

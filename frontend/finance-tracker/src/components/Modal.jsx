@@ -5,7 +5,7 @@ const Modal = ({ children, isOpen, onClose, title }) => {
   if (!isOpen) return null; //not opened then go back
 
   return (
-    <div className="fixed inset-0 z-199 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+    <div className="fixed inset-0 z-199 flex items-center justify-center bg-black/40 backdrop-blur-sm mt-10 ">
       <div className=" income-modal relative w-full mx-4 sm:mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl">
         <div className="bg-white rounded-lg shadow-md dark:bg-gray-800 max-h-[90vh] flex flex-col">
           {/* Header */}

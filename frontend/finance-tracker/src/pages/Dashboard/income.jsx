@@ -8,9 +8,12 @@ import AddIncomeForm from '../../components/Income/AddIncomeForm';
 import IncomeList from '../../components/Income/IncomeList';
 import { toast } from 'react-hot-toast';
 import DeleteAlert from '../../components/DeleteAlert';
+import { useUserAuth } from '../../hooks/useUserAuth';
 
 
 const Income = () => {
+
+  useUserAuth();
   
   const [incomeData,setIncomeData] = useState([]);
   const [loading,setLoading] = useState(false);
@@ -92,34 +95,34 @@ const Income = () => {
     }
   };
 
+
   //handle download income detail 
-const handleDownloadIncomeDetails = async () => {
-  try {
-    const response = await axiosInstance.get(API_PATHS.INCOME.DOWNLOAD_INCOME, {
-      responseType: 'blob', // Important! Treat response as a binary file
-    });
+  const handleDownloadIncomeDetails = async () => {
+    try {
+      const response = await axiosInstance.get(API_PATHS.INCOME.DOWNLOAD_INCOME, {
+        responseType: 'blob', // Treat response as a binary file
+      });
 
-    // Create a blob URL and force download
-    const url = window.URL.createObjectURL(new Blob([response.data]));
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', 'income-details.xlsx');
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
+      // Create a blob URL and force download
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'income-details.xlsx');
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
 
-    toast.success("Income file downloaded successfully!");
-  } catch (error) {
-    console.error("Download error:", error);
-    toast.error("Failed to download income file");
-  }
-};
+      toast.success("Income file downloaded successfully!");
+    } catch (error) {
+        console.error("Download error:", error);
+        toast.error("Failed to download income file");
+    }
+  };
 
 
 
   useEffect(() => {
     fetchIncomeDetails();
-
     return () => {};
   },[] );
 
