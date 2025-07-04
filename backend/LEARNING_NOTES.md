@@ -1,4 +1,5 @@
-                        // SET UP
+                        CODE_FLOW / SETUP
+
 1. cd backend
 2. npm init -y
 3.npm i express jsonwebtoken mongoose dotenv cors bcryptjs multer xlsx

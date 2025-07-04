@@ -1,3 +1,5 @@
+                          CODE_FLOW 
+
 1.npm create vite@latest(react and js)
 2.npm install
 3.remove app.css
@@ -63,7 +65,7 @@ after this back end started...
 38. Home layout and design, Dashboard layout , navbar , sidebar
 39. Home-fetch dashdata , other components in the home
 40. Home- barchart and piechart for exp
-41. Income componet and CRUD
+41. Income componet and CRUD -> then expense and its crud
 
 
 
