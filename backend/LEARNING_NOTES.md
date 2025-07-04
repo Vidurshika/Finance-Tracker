@@ -2,7 +2,7 @@
 
 1. cd backend
 2. npm init -y
-3.npm i express jsonwebtoken mongoose dotenv cors bcryptjs multer xlsx
+3. npm i express jsonwebtoken mongoose dotenv cors bcryptjs multer xlsx
   Package	        Purpose
     express	        Web framework for Node.js 
     jsonwebtoken	For creating and verifying JSON Web Tokens (JWT) – used in user authentication.
@@ -35,4 +35,4 @@
 30. income routes and controllers
 31. expense routes and controllers
 32. dashboard routes and controllers
-33.go to front end
+33. go to front end

@@ -1,19 +1,19 @@
                           CODE_FLOW 
 
-1.npm create vite@latest(react and js)
-2.npm install
-3.remove app.css
-4.empty index.css
-5.components,context,hooks,pages
-6.auth in pages- login,signup 
-7.dashboard in pages - home,income,expense
-8.utils and its 3 files
-9.tailwind -  npm install tailwindcss @tailwindcss/vite 
+1. npm create vite@latest(react and js)
+2. npm install
+3. remove app.css
+4. empty index.css
+5. components,context,hooks,pages
+6. auth in pages- login,signup 
+7. dashboard in pages - home,income,expense
+8. utils and its 3 files
+9. tailwind -  npm install tailwindcss @tailwindcss/vite 
               add plug-in and import to vite.config.js
               @import "tailwindcss"; in index.css
-10.google fonts
-11.index.css
-12.npm i react-icons axios moment emoji-picker-react react-router-dom recharts react-hot-toast
+10. google fonts
+11. index.css
+12. npm i react-icons axios moment emoji-picker-react react-router-dom recharts react-hot-toast
     This will install the following packages:
     react-icons: For adding icons in your React app.
     axios: For making HTTP requests.
@@ -22,9 +22,9 @@
     react-router-dom: For routing in React apps
     recharts: For creating charts in React.
     react-hot-toast: For displaying toast notifications in React.
-13.App.jsx
+13. App.jsx
 14. set Routes
-15.login and auth layouts
+15. login and auth layouts
 16. About Auth layout--{children}
     *children is a special prop in React.
     *It refers to whatever JSX you wrap inside this component when you use it.
@@ -39,8 +39,8 @@
     *Your layout gives a consistent outer structure (e.g., logo, styles, background), and children allows you to insert different content inside that layout.
     *This makes your layout reusable for both Login, SignUp, or any other page.
 
-17.input component,input box (in login page)styles added to index.css
-18.utils-helper:-
+17. input component,input box (in login page)styles added to index.css
+18. utils-helper:-
     *In a front-end app structure, the utils (short for utilities) folder is used to store reusable helper functions or modules that can be used throughout your application. These are not tied to a specific component or feature but provide general functionality.
     Common Uses of a utils Folder:
     Formatting Helpers e.g., formatDate.js, capitalize.js, formatCurrency.js
@@ -49,7 +49,7 @@
     Conversion Utilities e.g., bytesToMB.js, secondsToTime.js
     Math or String Utilities e.g., roundToDecimal.js, truncateText.js
 
-19.sign up page
+19. sign up page
 
 after this back end started...
 
